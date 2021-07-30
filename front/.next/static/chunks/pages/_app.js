@@ -695,7 +695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\SH\\Desktop\\StoryCollection\\StoryCollection\\front\\pages\\_app.jsx",
+var _jsxFileName = "C:\\Users\\SH\\Desktop\\StoryCollection\\front\\pages\\_app.jsx",
     _this = undefined,
     _s = $RefreshSig$();
 

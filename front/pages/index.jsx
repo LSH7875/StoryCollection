@@ -1,6 +1,7 @@
 import Styled from 'styled-components'
 import Graph from '../components/Graph'
 import Head from 'next/head'
+
 const P =Styled.h1`
     margin-top:3rem;
     text-align:center;
