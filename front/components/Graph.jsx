@@ -1,89 +1,121 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import Styled from 'styled-components' 
+// import React from 'react';
+// // import Chart from 'react-apexcharts';
+// import dynamic from 'next/dynamic';
+// const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const Vertical = Styled.div`
-    &>.header>.title{
-        width:100%;
-        text-align:center;
-    }`
-const Graph = Styled.div`
-    & > .bargraph{
-        position:relative;
-        width:80vw;
-        height:40vh;
-        box-sizing:border-box;
-        margin-left:10vw;
 
-    }
+// const Graph =()=>{
+//         const options={
+//             chart:{
+//                 id:"basic-bar"
+//             },
+//             xaxis:{
+//                 categories:["순발력","창의력","노오력","포용력"]
+//             }}
+            
+//         const series=[
+//                 {data:[100,50,70,60]}
+//             ]
+        
+
+        
+        
+        
+//     console.log({...options})
+//     return (
+//         <>
+//         aaa'
+//             <ApexCharts {...options} {...series} type="bar" width="500"/>
+//         </>
+//     )
+// }
+
+// export default Graph
+
+import React, { Component } from "react";
+// import Chart from "react-apexcharts";
+import dynamic from 'next/dynamic';
+import Styled from 'styled-components'
+
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+const App = Styled.div`
+    position:relative;
+    width:80vw;
+    height:43vh;
+    left:10vw;
 `
+ApexCharts.colors=['#F44336', '#E91E63', '#9C27B0','green']
 
-const chartAreaBorder = {
-    id: 'chartAreaBorder',
-    beforeDraw(chart, args, options) {
-      const {ctx, chartArea: {left, top, width, height}} = chart;
-      ctx.save();
-      ctx.strokeStyle = options.borderColor;
-      ctx.lineWidth = options.borderWidth;
-      ctx.setLineDash(options.borderDash || []);
-      ctx.lineDashOffset = options.borderDashOffset;
-      ctx.strokeRect(left, top, width, height);
-      ctx.restore();
-    }
-  };
-const data = {
-    labels: ['순발력', '눈치력', '예절성', '논리력'],
-    datasets: [
-      { 
-        data: [100, 20, 30, 50],
-        backgroundColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)'
+class Graph extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+        options: {
+            chart: {
+                id: "basic-bar"
+            },
+            xaxis: {
+                lines:{show:true},
+                categories: ["호구력", "창의력", "예의범절", "순발력"]
+            },
+            yaxis: {
+                lines:{show:false}
+            }
+        },
+            series: [
+            {
+                name: "series-1",
+                data: [30, 40, 45, 50]
+            }
         ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)'
-        ],
-        borderWidth: 0,
-      },
-    ],
-};
-  
-  const options = {
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
+        grid: {
+            show: true,
+            borderColor: '#90A4AE',
+            strokeDashArray: 0,
+            position: 'back',
+            xaxis: {
+                lines: {
+                    show: false
                 }
-            }],
-            yAxes: [{
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
-                }   
-            }]
+            },   
+            yaxis: {
+                lines: {
+                    show: false
+                }
+            },  
+            row: {
+                colors: undefined,
+                opacity: 0.5
+            },  
+            column: {
+                colors: undefined,
+                opacity: 0.5
+            },  
+            padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },  
         }
-    }
-
-
-const plugins={
-    chartAreaBorder
+    };
 }
-  
-  const VerticalBar = () => (
-    <Vertical>
-      <div className='header'>
-      </div>
-      <Graph>
-          <div className="hidden"></div>
-          <div className ="bargraph">
-                <Bar data={data} width={100} height={100} options={options} plugin={chartAreaBorder} />
-            </div>
-      </Graph>
-    </Vertical>
-  );
-  
-  export default VerticalBar;
+
+    render() {
+    return (
+        <App>
+            <ApexCharts
+                options={this.state.options}
+                series={this.state.series}
+                type="bar"
+                width="300"
+                height="300"
+                grid={this.state.grid}
+            />
+        </App>
+    );}
+}
+
+export default Graph;
