@@ -29,10 +29,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/_semi_final": [
+    "/result/[score]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/_semi_final.js"
+      "static/chunks/pages/result/[score].js"
     ]
   },
   "ampFirstPages": []
