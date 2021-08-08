@@ -50,7 +50,7 @@ ApexCharts.colors=['#F44336', '#E91E63', '#9C27B0','green']
 class Graph extends Component {
     constructor(props) {
     super(props);
-
+    console.log('props.value',props)
     this.state = {
         options: {
             chart: {
@@ -67,7 +67,7 @@ class Graph extends Component {
             series: [
             {
                 name: "series-1",
-                data: [30, 40, 45, 50]
+                data: [props.value[0], props.value[1], props.value[2], props.value[3]]
             }
         ],
         grid: {
