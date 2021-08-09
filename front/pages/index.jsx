@@ -36,9 +36,9 @@ const P = Styled.p`
     text-align:center;
     `
 
-const final_page=({props})=>{
-    
-    const {dispatch} =useContext(Store)
+
+const final_page=()=>{
+
 
     // dispatch({type:"PLUSLIST",payload:[
     //     {id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
@@ -52,9 +52,11 @@ const final_page=({props})=>{
         {id:1-2,stat1:20,stat2:1,stat3:5,stat4:20},
         {id:1-3,stat1:30,stat2:1,stat3:5,stat4:20},
         {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
-        {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20}]
-    // console.log('인덱스의 List는?',List)
+        {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20},
+        ]
+
     let stat1=0,stat2=0,stat3=0,stat4=0;
+
     List.map(v=>{
             stat1+=v.stat1;
             stat2+=v.stat2;
