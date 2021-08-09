@@ -46,23 +46,24 @@ const final_page=()=>{
         {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
         {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20},
         ]
-        let stat1=0,stat2=0,stat3=0,stat4=0;
-        List.map(v=>{
+    let stat1=0,stat2=0,stat3=0,stat4=0;
+    List.map(v=>{
             stat1+=v.stat1;
             stat2+=v.stat2;
             stat3+=v.stat3;
             stat4+=v.stat4;
-        })
+    })
         
-        console.log(stat1,stat2,stat3,stat4)
-        const {dispatch} =useContext(Store)
+    console.log(stat1,stat2,stat3,stat4)
+    const {dispatch} =useContext(Store)
 
-        const buttonClick=()=>{
-            console.log('버튼눌림')
-            dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
-            Router.push(`/result/${stat1}&${stat2}&${stat3}&${stat4}`)
+    const buttonClick=()=>{
+        console.log('버튼눌림')
+        dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
+        Router.push(`/result/${stat1}&${stat2}&${stat3}&${stat4}`)
             
-        }
+    }
+    
     return(
         <>
             <P>테스트가 끝났습니다.</P>
