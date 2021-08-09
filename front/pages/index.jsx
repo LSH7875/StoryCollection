@@ -37,7 +37,6 @@ const P = Styled.p`
     `
 
 const final_page=()=>{
-    
 
     let List=[
         {id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
@@ -46,7 +45,9 @@ const final_page=()=>{
         {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
         {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20},
         ]
+
     let stat1=0,stat2=0,stat3=0,stat4=0;
+
     List.map(v=>{
             stat1+=v.stat1;
             stat2+=v.stat2;
