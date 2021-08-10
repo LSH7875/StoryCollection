@@ -2,12 +2,30 @@
 
 *{
     font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .container{
     background-color: aquamarine;
+    width: 100vw;
+    height: 100%;
+}
+
+.info_css{
     width: 100%;
-    height: 100vh;
+    height:fit-content;
+    padding-top:20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.img_size{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
 }
 
 .content_box{
@@ -15,13 +33,15 @@
     height: 9vh;
     max-height: 50vh;
     position: relative;
-    background: blueviolet;
+    margin: 10px 0 ;
 }
 
 
 .right_content {
     color: black;
     position:relative;
+    top: 50%; 
+    transform: translateY(-50%);
     padding: 12px 20px;
     width: fit-content;
     max-width: 300px;
@@ -29,6 +49,8 @@
     background:yellow;
     border-radius: 10px;
     float: right;
+    right:15px;
+    font-weight: bold;
    }
 .right_content:after {
     border-top:15px solid yellow;
@@ -41,10 +63,16 @@
     right:-15px;
    }
 
+.left_img{
+    float: left;
+}
+
 .left_content {
-    color: wheat;
+    color: whitesmoke;
     position:relative;
-    margin: 10px 50px;
+    top: 50%; 
+    transform: translateY(-50%);
+    margin: 0 50px;
     padding: 12px 20px;
     width: fit-content;
     max-width: 300px;
@@ -52,6 +80,7 @@
      background:#333333;
      border-radius: 10px;
      right:30px;
+     float: left;
    }
 .left_content:after {
     border-top:15px solid #333333;
@@ -63,3 +92,24 @@
     top:10px;
     left:-15px;
    }
+
+
+
+   .nextpage_css {
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: pink;
+    position: relative;
+    top: -50px;
+  }
+  .nextpage_css:after {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: pink;
+  }
