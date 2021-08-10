@@ -1,8 +1,11 @@
+import {initialState} from './context'
+
+
 const reducer=(state,action)=>{
     console.log('reducer들어옴')
     switch(action.type){
         case "INITIALIZE":
-            return state
+            return initialState
         case "PLUSLIST":
             console.log('pluslist들어옴')
             return {...state,List:{...action.payload}}
