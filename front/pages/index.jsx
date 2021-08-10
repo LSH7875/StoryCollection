@@ -36,32 +36,26 @@ const P = Styled.p`
     text-align:center;
     `
 
+const final_page=({props})=>{
+    
+    const {dispatch,state} =useContext(Store)
 
-const final_page=()=>{
-
-
-    // dispatch({type:"PLUSLIST",payload:[
-    //     {id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
+    let {List} =state; 
+    const list = List[0];
+    const idarr = id.id.split("-");
+    const id = idarr[0];
+    // let List=[{id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
     //     {id:1-2,stat1:20,stat2:1,stat3:5,stat4:20},
     //     {id:1-3,stat1:30,stat2:1,stat3:5,stat4:20},
     //     {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
-    //     {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20}]})
-    // console.log('dispatch',dispatch)
-    console.log('state',Store)
-    let List=[{id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
-        {id:1-2,stat1:20,stat2:1,stat3:5,stat4:20},
-        {id:1-3,stat1:30,stat2:1,stat3:5,stat4:20},
-        {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
-        {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20},
-        ]
-
+    //     {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20}]
+    // console.log('인덱스의 List는?',List)
     let stat1=0,stat2=0,stat3=0,stat4=0;
-
     List.map(v=>{
-            stat1+=v.stat1;
-            stat2+=v.stat2;
-            stat3+=v.stat3;
-            stat4+=v.stat4;
+            stat1+=parseInt(v.stat1);
+            stat2+=parseInt(v.stat2);
+            stat3+=parseInt(v.stat3);
+            stat4+=parseInt(v.stat4);
     })
         
     console.log(stat1,stat2,stat3,stat4)
@@ -70,7 +64,7 @@ const final_page=()=>{
     const buttonClick=()=>{
         console.log('버튼눌림')
         dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
-        Router.push(`/result/${stat1}&${stat2}&${stat3}&${stat4}`)
+        Router.push(`/result/${id}&${stat1}&${stat2}&${stat3}&${stat4}`)
             
     }
     
