@@ -48,9 +48,9 @@ const first_page=()=>{
     console.log('stepnum',stepnum)
     const {dispatch} =useContext(Store);
     
-    if(stepnum==1){
-        dispatch({type:"INITIALIZE"})
-    }
+    // if(stepnum===1){
+    //     dispatch({type:"INITIALIZE"})
+    // }
     let List=[
             {id:'1',
             test_page_id:'1-1',
