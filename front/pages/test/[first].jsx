@@ -27,14 +27,15 @@ const ResultInform = Styled.div`
 `
 const Button = Styled.button`
     width:50vw;
-    height:4vh;
+    height:5vh;
+    display:block;
     font-size:1em;
-    background: #aac7f3d6;
-    border-radius:1rem;
+    background: yellow;
+    border-radius:14px;
     border:0;
-    margin:1vh 23vw;
+    margin:0 auto 10px auto ;
+    font-weight:600;
     `
-
 
 
 const first_page=()=>{
@@ -54,8 +55,8 @@ const first_page=()=>{
     let List=[
             {id:'1',
             test_page_id:'1-1',
-            info:'롤상황에서',
-            kakaotalk:'내가&너를&만난왜이렇게 변하는걸까 정말 어렵다 어려워다&밥집에서&뭐하게&???',
+            info:'롤상황에서만약 당신이 정글의 무빙과 함께 블라블라블라블라블라블라블라블라블라블라블라블라',
+            kakaotalk:'내가&너를ㅁ니ㅏ럼ㄴ;ㅣ러ㅏㅁ니;런ㅁ;ㅣ라ㅓㅁ니;러&만난왜이렇게 변하는걸까 정말 어렵다 어려워다&너정말 쓰레기구나&휴...&밥집에서&뭐하게&???',
             answer1:'VARCHAR(20)',
             answer2:'VARCHAR(20)',
             answer3:'VARCHAR(20)',
@@ -106,6 +107,8 @@ const first_page=()=>{
         }
     }
 
+    const imgUrl="/draven1.jpg"
+
     return(
         <>
         <Head>
@@ -121,18 +124,23 @@ const first_page=()=>{
         </Head>
             <div className="container">
 
-            {List[0].info}
+            <div className="info_css">{List[0].info}</div>
 
                 {kakao.map((v,k)=>{
                     return(
                         <div key={k}>
-                            {k%2===0
+                            {k%2===1
                             ?<div className="content_box"><div className="right_content" key={k}>
                             {v} 
                         </div></div>
-                        :<div className="content_box"><div className="left_content" key={k}>
+                        :<div className="content_box">
+                            <div className="left_img">
+                                <img className="img_size" src={imgUrl} />
+                            </div>
+                            <div className="left_content" key={k}>
                             {v} 
-                        </div></div>    
+                            </div>
+                        </div>    
                     }
                         </div>
                     )
@@ -144,8 +152,8 @@ const first_page=()=>{
                 })}
                 
                 <div>
-                    {stepnum==1?'':<button onClick={()=>pagemove()}>prev</button>}
-                    <button onClick={()=>pagemove("nextpage")}>next</button>
+                    {stepnum==1?'':<div className="prevpage_css" onClick={()=>pagemove()}>prev</div>}
+                    <div className="nextpage_css" onClick={()=>pagemove("nextpage")}>next</div>
                 </div>
             </div>
         </>
