@@ -1,13 +1,22 @@
+import {initialState} from './context'
+
+
 const reducer=(state,action)=>{
     console.log('reducer들어옴')
     switch(action.type){
+        case "INITIALIZE":
+            return initialState
+        case "PLUSLIST":
+            console.log('pluslist들어옴')
+            return {...state,List:{...action.payload}}
+        case "PLUS_STAGE":
+            let list= [...state.List];
+            list.push(action.payload)
+            return{...state,List:list}
         case "SUMSTAT" :
-            console.log("섬스탯?")
-            console.log('페이로드값')
             console.log(action.payload)
             return{...state,stat:{...action.payload}}
         case "TEST":
-            console.log('reducer 도착')
             return{
                 ...state
             }

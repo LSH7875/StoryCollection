@@ -67,7 +67,7 @@ class Graph extends Component {
             series: [
             {
                 name: "series-1",
-                data: [props.value[0], props.value[1], props.value[2], props.value[3]]
+                data: [props.value[1], props.value[2], props.value[3], props.value[4]]
             }
         ],
         grid: {
