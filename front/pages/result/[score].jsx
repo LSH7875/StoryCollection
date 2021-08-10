@@ -33,7 +33,7 @@ const result_page=()=>{
     let {score}= router.query;
     let bb=String(score);
     let query=bb.split('&');
-    
+    console.log('query',query)
     let query1=query.slice();
     let arr = query1.sort(function(a,b){
         return b-a;
