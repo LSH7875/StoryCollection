@@ -36,13 +36,15 @@ const P = Styled.p`
     text-align:center;
     `
 
-const final_page=({props})=>{
+const final_page=()=>{
     
     const {dispatch,state} =useContext(Store)
 
     let {List} =state; 
     const list = List[0];
-    const idarr = id.id.split("-");
+    console.log('list',list)
+    const idarr = list.id.split("-");
+    console.log('idarr',idarr)
     const id = idarr[0];
     // let List=[{id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
     //     {id:1-2,stat1:20,stat2:1,stat3:5,stat4:20},

@@ -2,3 +2,5 @@
 node_modules/
 *.next/*
 .next/
+.env
+next.config.js
