@@ -5,7 +5,8 @@ import {useContext,useEffect} from 'react'
 import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import KakaoLink from '../../components/KakaoLink2'
-//import { Helmet } from 'react-helmet'
+import  Link  from 'next/link'
+
 
 
 const P =Styled.h1`
@@ -20,11 +21,16 @@ const P =Styled.h1`
 
 `
 const ResultInform = Styled.div`
-    position:relative;
+    position:block;
     top:2em;
     width:100%;
     padding-left:10%;
+    margin-bottom:1em;
 `
+
+
+
+
 const result_page=()=>{
 
     const {dispatch} = useContext(Store);
@@ -35,20 +41,30 @@ const result_page=()=>{
     let {score}=router.query;
     let bb=String(score);
     let query=bb.split('&');
-    console.log('query',query)
     let query1=query.slice();
     let arr = query1.sort(function(a,b){
         return b-a;
     })
     let highscore=arr[0];//제일 높은 점수
 
-
-    console.log('query1',query1)
-
-    // console.log(bb);
+    // score점수가 바뀔 때 dispatch를 보냄(1번째 받는 score값은 undefined이고 2번째 받는 score값에는 query가 제대로 담김)
     useEffect(()=>{
-        // dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
-    },[])
+        dispatch({type:"SUMSTAT",payload:{'stat1':query[1],'stat2':query[2],'stat3':query[3],'stat4':query[4]}});
+    },[score])
+
+    //css-style
+    const linkstyle={
+        overflow:'hidden',
+        display:"block",
+        width:'22px',
+        height:'22px',
+        marginLeft:"50%",
+    }
+    const listStyle={
+        display:'block',
+        left:"50%"
+    }
+
 
     return(
         <>
@@ -63,11 +79,15 @@ const result_page=()=>{
             <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
             
             <Graph value={query}/>
-            <Helmet>
-                <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-            </Helmet>
-            <KakaoLink value ={score}/>
-            <ResultInform>어쩌구 저쩌구한 당신은 진정한 호구입니다.</ResultInform>
+            
+            <ResultInform>어쩌구 저쩌구한 당신은 진정한 호구입니다.
+                sfdgsdfgsdfgsdfg
+                sdfgsdfgsdfdasfasdfasdfa
+                adfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+            </ResultInform>
+            공유하기
+            <KakaoLink value ={score} style = {linkstyle}/>
+            <Link href="/main" style={listStyle}><a>목록가기</a></Link>
         </>
 
     )
