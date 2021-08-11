@@ -44,7 +44,7 @@ const App=({score})=>{
         <KakaoLinkDefault
           className="template"
           template={template}
-          jsKey={"3e726fb09fc5c9a9171365e3ecf128a9"}
+          jsKey={process.env.NEXT_PUBLIC_API_KEY}
         >
           <button>카카오링크 디폴트 템플릿</button>
         </KakaoLinkDefault>
