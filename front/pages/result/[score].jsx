@@ -5,7 +5,7 @@ import {useContext,useEffect} from 'react'
 import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import KakaoLink from '../../components/KakaoLink2'
-import { Helmet } from 'react-helmet'
+//import { Helmet } from 'react-helmet'
 
 
 const P =Styled.h1`
