@@ -5,8 +5,7 @@ import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import Router from 'next/router'
 import {} from 'react-bootstrap'
-
-
+import { useEffect } from 'react'
 
 const P =Styled.h1`
     margin-top:3rem;
@@ -69,8 +68,6 @@ const first_page=()=>{
         ]
     let kakao = List[0].kakaotalk.split('&');
     
-
-
     let {answer1,answer2,answer3,answer4} = List[0];
     let point1=List[0].point1.split('&');
     let point2=List[0].point1.split('&');
@@ -151,7 +148,7 @@ const first_page=()=>{
                     )
                 })}
                 
-                <div>
+                <div className="button_box">
                     {stepnum==1?'':<div className="prevpage_css" onClick={()=>pagemove()}>prev</div>}
                     <div className="nextpage_css" onClick={()=>pagemove("nextpage")}>next</div>
                 </div>
