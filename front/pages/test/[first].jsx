@@ -5,7 +5,7 @@ import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import Router from 'next/router'
 import {} from 'react-bootstrap'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const P =Styled.h1`
     margin-top:3rem;
@@ -42,6 +42,7 @@ const first_page=()=>{
     const router=useRouter();
     let {first}= router.query;
 
+    
     let stage_step=String(first);
     let stagenum=stage_step.split("-")[0]
     let stepnum=stage_step.split("-")[1]
@@ -54,12 +55,12 @@ const first_page=()=>{
     let List=[
             {id:'1',
             test_page_id:'1-1',
-            info:'롤상황에서만약 당신이 정글의 무빙과 함께 블라블라블라블라블라블라블라블라블라블라블라블라',
-            kakaotalk:'내가&너를ㅁ니ㅏ럼ㄴ;ㅣ러ㅏㅁ니;런ㅁ;ㅣ라ㅓㅁ니;러&만난왜이렇게 변하는걸까 정말 어렵다 어려워다&너정말 쓰레기구나&휴...&밥집에서&뭐하게&???',
-            answer1:'VARCHAR(20)',
-            answer2:'VARCHAR(20)',
-            answer3:'VARCHAR(20)',
-            answer4:'VARCHAR(20)',
+            info:'부모님이 여행계획을 세우는데 아버지는 산, 어머니는 바다로 대립중이다. 당신의 의견은?',
+            kakaotalk:'딸~ 이번에 여행갈껀데&예&아버지는 산, 어머니는 바다가 좋다고하네?&예&딸은 어디가고싶어?&???',
+            answer1:'아버지 저는 산이 좋습니다',
+            answer2:'어머니 바다로 갑시다',
+            answer3:'바다가 보이는 산을 갑시다',
+            answer4:'난 호텔을 가고싶어요 부모님',
             point1:'0&11&3&12',
             point2:'0&11&3&12',
             point3:'0&11&3&12',
@@ -75,6 +76,7 @@ const first_page=()=>{
     let point4=List[0].point1.split('&');
     let maparr = [{answer:answer1,point:point1},{answer:answer2,point:point2},{answer:answer3,point:point3},{answer:answer4,point:point4}]
     
+   
 
     const buttonClick=(point)=>{
         dispatch({type:"PLUS_STAGE",payload:{'id':first,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}});
@@ -103,7 +105,13 @@ const first_page=()=>{
             router.push(`/test/${bb}`)
         }
     }
+    /* 서버와 연결 했을 때 작동하는지 확인해봐야함
+    let [css,css_change] = useState(List)
 
+    useEffect(()=>{
+        css_change(List)
+    })
+    */
     const imgUrl="/draven1.jpg"
 
     return(
