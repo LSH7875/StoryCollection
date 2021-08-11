@@ -1,11 +1,11 @@
 import Styled from 'styled-components'
-import Graph from '../../components/Graph'
+import Graph from '../../components/Graph1'
 import Head from 'next/head'
 import {useContext,useEffect} from 'react'
 import Store from '../../store/context'
 import {useRouter} from 'next/router'
-
-
+import KakaoLink from '../../components/KakaoLink2'
+import { Helmet } from 'react-helmet'
 
 
 const P =Styled.h1`
@@ -29,8 +29,10 @@ const result_page=()=>{
 
     const {dispatch} = useContext(Store);
     const router=useRouter();
+    
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
-    let {score}= router.query;
+
+    let {score}=router.query;
     let bb=String(score);
     let query=bb.split('&');
     console.log('query',query)
@@ -41,19 +43,17 @@ const result_page=()=>{
     let highscore=arr[0];//제일 높은 점수
 
 
-
+    console.log('query1',query1)
 
     // console.log(bb);
     useEffect(()=>{
-        dispatch({
-            type:'TEST',
-            data:'test'
-        })
+        // dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
     },[])
 
     return(
         <>
-        <Head>
+        <Head>  
+            <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
@@ -63,7 +63,10 @@ const result_page=()=>{
             <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
             
             <Graph value={query}/>
-           
+            <Helmet>
+                <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+            </Helmet>
+            <KakaoLink value ={score}/>
             <ResultInform>어쩌구 저쩌구한 당신은 진정한 호구입니다.</ResultInform>
         </>
 

@@ -5,8 +5,9 @@ export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
-
+    
     try {
+      
       // sheet을 사용해 정의된 모든 스타일을 수집
       ctx.renderPage = () =>
         originalRenderPage({
