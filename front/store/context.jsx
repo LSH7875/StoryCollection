@@ -1,7 +1,7 @@
 import {createContext} from 'react'
 
 export const initialState ={
-    List:[],
+    List:[{'id':'1-1','stat1':0,'stat2':0,'stat3':0,'stat4':0}],
     stat:{stat1:0,stat2:0,stat3:0,stat4:0}
 }
 

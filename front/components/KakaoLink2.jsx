@@ -1,4 +1,13 @@
 import React, { useEffect } from 'react'
+import Styled from 'styled-components'
+
+const KakaoShare =Styled.div`
+    position:relative;
+    width:22px;
+    height:22px;
+    left:50%;
+    translate:translateX(-400px);` 
+
 
 const KakaoShareButton = () => {
   useEffect(() => {
@@ -53,12 +62,13 @@ const KakaoShareButton = () => {
     }
   }
   return (
-    <div className="kakao-share-button">
+    <KakaoShare>
       {/* Kakao share button */}
       <button id="kakao-link-btn">
         <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="kakao-share-icon" />
       </button>
-    </div>
+    </KakaoShare>
+
   )
 }
 export default KakaoShareButton
