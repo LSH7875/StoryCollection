@@ -8,6 +8,7 @@ import KakaoLink from '../../components/KakaoLink2'
 import  Link  from 'next/link'
 
 
+
 const P =Styled.h1`
     margin-top:3rem;
     text-align:center;
