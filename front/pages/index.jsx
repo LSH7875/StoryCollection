@@ -22,6 +22,7 @@ const ResultInform = Styled.div`
 `
 const start_page=()=>{
 
+
     const router=useRouter();
     
     return(
