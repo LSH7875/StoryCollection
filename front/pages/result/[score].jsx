@@ -26,8 +26,23 @@ const ResultInform = Styled.div`
     width:100%;
     padding-left:10%;
     margin-bottom:1em;
+    margin-top:1em;
 `
 
+const List = Styled.div`
+    display:block;
+    width:100%;
+    background:blue;
+    text-align:center;
+    height:8vh;
+    padding-top:2.3vh;
+    left:50%;
+    >Link{
+        
+    }
+
+
+                `
 
 
 
@@ -61,9 +76,19 @@ const result_page=()=>{
         marginLeft:"50%",
     }
     const listStyle={
-        display:'block',
-        left:"50%"
+        // display:'block',
+        // left:"50%",
+        // textAlign:"center"
     }
+    const graph={
+        display:"relative",
+        width:"100%",
+        height:"80vh",
+        overflow:"hidden"
+    
+    }
+    
+        
 
 
     return(
@@ -73,21 +98,22 @@ const result_page=()=>{
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/></style>
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/>
+            </style>
         </Head>
              <P>🌟당신은 호구입니다.🌟</P>
             <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
             
-            <Graph value={query}/>
+            <Graph style = {graph} value={query}/>
             
             <ResultInform>어쩌구 저쩌구한 당신은 진정한 호구입니다.
                 sfdgsdfgsdfgsdfg
                 sdfgsdfgsdfdasfasdfasdfa
                 adfasdfasdfasdfasdfasdfasdfasdfasdfasdf
             </ResultInform>
-            공유하기
+            <p style={{textAlign:"center"}}>공유하기</p> 
             <KakaoLink value ={score} style = {linkstyle}/>
-            <Link href="/main" style={listStyle}><a>목록가기</a></Link>
+            <List><Link href="/main" style={listStyle}><a>목록가기</a></Link></List>
         </>
 
     )
