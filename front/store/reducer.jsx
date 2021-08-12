@@ -13,7 +13,7 @@ const reducer=(state,action)=>{
             let list= [...state.List];
             list[parseInt(action.payload.num)-1]=action.payload.List;
             let buttonkey=action.payload.key;
-            return{...state,List:list,buttonkey:buttonkey}
+            return{...state,List:list,}
         case "SUMSTAT" :
             console.log(action.payload);
             return{...state,stat:{...action.payload}}
