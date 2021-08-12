@@ -48,7 +48,10 @@ const first_page=()=>{
     let stepnum=stage_step.split("-")[1]
     console.log('stepnum',stepnum)
     const {dispatch,state} =useContext(Store);
-    const step_key= state.List.buttonkey || Infinity; 
+    const aab = {...state.List[stepnum-1]};
+    console.log('스테이트의 넘버 어쩌구저쩌구',aab.key);
+    console.log()
+    let step_key=  Infinity; 
     // if(stepnum===1){
     //     dispatch({type:"INITIALIZE"})
     // }
@@ -79,7 +82,7 @@ const first_page=()=>{
    
 
     const buttonClick=(point,buttonkey)=>{
-        dispatch({type:"PLUS_STAGE",payload:{num:stepnum,key:buttonkey,List:{'id':first,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}}});
+        dispatch({type:"PLUS_STAGE",payload:{num:stepnum,List:{'id':first,'key':buttonkey,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}}});
         if(stepnum==="5"){
             // router.push(`/before_result`);
         }else{
@@ -153,8 +156,8 @@ const first_page=()=>{
                 })}
                 {maparr.map((v,k)=>{
                     return (
-                        k===step_key?
-                        <Button style ={{backgroundColor:"black",fontColor:"white"}}key={k} onClick={()=>{buttonClick(v.point,k)}}>{v.answer}</Button>
+                        k===aab.key?
+                        <Button style ={{backgroundColor:"blue",fontColor:"white"}}key={k} onClick={()=>{buttonClick(v.point,k)}}>{v.answer}</Button>
                         :<Button key={k} onClick={()=>{buttonClick(v.point,k)}}>{v.answer}</Button>
                         )
                 })}
