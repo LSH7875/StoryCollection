@@ -81,7 +81,7 @@ const first_page=()=>{
     const buttonClick=(point)=>{
         dispatch({type:"PLUS_STAGE",payload:{'id':first,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}});
         if(stepnum==="5"){
-            router.push(`/`);
+            router.push(`/before_result`);
         }else{
             const aa=parseInt(stepnum)+1;
             const bb=String(`${stagenum}-${aa}`);
@@ -91,7 +91,7 @@ const first_page=()=>{
 
     function pagemove(page){
         if(stepnum==="5"&&page==="nextpage" ){
-            router.push(`/`);
+            router.push(`/before_result`);
         }else if(page==="nextpage"){
             console.log(stepnum);
             const aa=parseInt(stepnum)+1;

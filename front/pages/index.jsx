@@ -1,83 +1,50 @@
-import Link from 'next/link'
 import Styled from 'styled-components'
-import {useContext} from 'react'
-import Store from '../store/context'
-import Router from 'next/router'
+import Head from 'next/head'
+import {useRouter} from 'next/router'
 
-const Button = Styled.button`
-    position:absolute;
-    top:60%;
-    left:50%;
-    transform:translateX(-50%);
-    width:50vw;
-    height:10vh;
-    font-size:1em;
-    background: #aac7f3d6;
-    border-radius:1rem;
-    border:0;
-    `
-const Span = Styled.p`
-position:absolute;
-top:45%;
-left:50%;
-transform:translateX(-50%) translateY(-30%);
-width:50vw;
-height:10vh;
-text-align:center;
-`
-const P = Styled.p`
-    position:absolute;
-    top:25%;
-    left:50%;
-    transform:translateX(-50%) translateY(-30%);
-    width:70vw;
-    height:10vh;
-    font-size:2rem;
+
+const P =Styled.h1`
+    margin-top:3rem;
     text-align:center;
-    `
+    font-size:1.5rem;
+    font-weight:800;
+    width:100%;
+    height:5vh;
+    margin-bottom:2rem;
+    font-family: 'Noto Sans KR', sans-serif;
 
-const final_page=()=>{
-    
-    const {dispatch,state} =useContext(Store)
+`
+const ResultInform = Styled.div`
+    position:relative;
+    top:2em;
+    width:100%;
+    padding-left:10%;
+`
+const start_page=()=>{
 
-    let {List} =state; 
-    const list = List[0];
-    // console.log('list',list)
-    const idarr = list.id.split("-");
-    // console.log('idarr',idarr)
-    const id = idarr[0];
-    // let List=[{id:1-1,stat1:10,stat2:1,stat3:5,stat4:20},
-    //     {id:1-2,stat1:20,stat2:1,stat3:5,stat4:20},
-    //     {id:1-3,stat1:30,stat2:1,stat3:5,stat4:20},
-    //     {id:1-4,stat1:10,stat2:1,stat3:5,stat4:20},
-    //     {id:1-5,stat1:20,stat2:1,stat3:5,stat4:20}]
-    // console.log('인덱스의 List는?',List)
-    let stat1=0,stat2=0,stat3=0,stat4=0;
-    List.map(v=>{
-            stat1+=parseInt(v.stat1);
-            stat2+=parseInt(v.stat2);
-            stat3+=parseInt(v.stat3);
-            stat4+=parseInt(v.stat4);
-    })
-        
-    console.log(stat1,stat2,stat3,stat4)
-    
 
-    const buttonClick=()=>{
-        console.log('버튼눌림')
-        dispatch({type:"SUMSTAT",payload:{'stat1':stat1,'stat2':stat2,'stat3':stat3,'stat4':stat4}});
-        Router.push(`/result/${id}&${stat1}&${stat2}&${stat3}&${stat4}`)
-            
-    }
+    const router=useRouter();
     
     return(
         <>
-            <P>테스트가 끝났습니다.</P>
-            <Span>결과보기 버튼을 눌러 결과를 확인하세요</Span> 
-            <Button onClick={()=>buttonClick()}><a>결과보기</a></Button>
+        <Head>
+            <style>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/></style>
+        </Head>
+             
+            <p>
+                테스트
+            </p>
+
+            <button onClick={() => router.push('/test/1-1')}>테스트테스트</button>
+            <button onClick={() => router.push('/test/2-1')}>호구테스트</button>
+            <button onClick={() => router.push('/test/3-1')}>정치력테스트</button>
+
         </>
 
     )
 }
 
-export default final_page
+export default start_page
