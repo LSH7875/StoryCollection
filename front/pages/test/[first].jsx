@@ -47,8 +47,8 @@ const first_page=()=>{
     let stagenum=stage_step.split("-")[0]
     let stepnum=stage_step.split("-")[1]
     console.log('stepnum',stepnum)
-    const {dispatch} =useContext(Store);
-    
+    const {dispatch,state} =useContext(Store);
+    const step_key= state.List.buttonkey || Infinity; 
     // if(stepnum===1){
     //     dispatch({type:"INITIALIZE"})
     // }
@@ -78,14 +78,14 @@ const first_page=()=>{
     
    
 
-    const buttonClick=(point)=>{
-        dispatch({type:"PLUS_STAGE",payload:{'id':first,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}});
+    const buttonClick=(point,buttonkey)=>{
+        dispatch({type:"PLUS_STAGE",payload:{num:stepnum,key:buttonkey,List:{'id':first,'stat1':point[0],'stat2':point[1],'stat3':point[2],'stat4':point[3]}}});
         if(stepnum==="5"){
-            router.push(`/before_result`);
+            // router.push(`/before_result`);
         }else{
             const aa=parseInt(stepnum)+1;
             const bb=String(`${stagenum}-${aa}`);
-            router.push(`/test/${bb}`);
+            // router.push(`/test/${bb}`);
         }
     }
 
@@ -113,6 +113,7 @@ const first_page=()=>{
     })
     */
     const imgUrl="/draven1.jpg"
+
 
     return(
         <>
@@ -152,8 +153,10 @@ const first_page=()=>{
                 })}
                 {maparr.map((v,k)=>{
                     return (
-                        <Button key={k} onClick={()=>{buttonClick(v.point)}}>{v.answer}</Button>
-                    )
+                        k===step_key?
+                        <Button style ={{backgroundColor:"black",fontColor:"white"}}key={k} onClick={()=>{buttonClick(v.point,k)}}>{v.answer}</Button>
+                        :<Button key={k} onClick={()=>{buttonClick(v.point,k)}}>{v.answer}</Button>
+                        )
                 })}
                 
                 <div className="button_box">

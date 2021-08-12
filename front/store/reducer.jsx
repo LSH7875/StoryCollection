@@ -11,10 +11,11 @@ const reducer=(state,action)=>{
             return {...state,List:{...action.payload}}
         case "PLUS_STAGE":
             let list= [...state.List];
-            list.push(action.payload)
-            return{...state,List:list}
+            list[parseInt(action.payload.num)-1]=action.payload.List;
+            let buttonkey=action.payload.key;
+            return{...state,List:list,buttonkey:buttonkey}
         case "SUMSTAT" :
-            console.log(action.payload)
+            console.log(action.payload);
             return{...state,stat:{...action.payload}}
         case "TEST":
             return{
