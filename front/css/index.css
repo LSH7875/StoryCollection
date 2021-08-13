@@ -8,17 +8,174 @@
 
 .container{
     background-color: #B2C7D9;
-    width: 100vw;
+    width: 100%;
     height: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/*index css*/
+   
+.container_index{
+    background: #333333;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+  
+  .cup_button{
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 22% 0;
+      color: white;
+      text-align: center;
+  }
+
+  .cup {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 120px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(https://image.ibb.co/fmHm66/wave.png);
+    background-position: 0px 350px;
+    background-repeat: repeat-x;
+    animation: filling 10s ease-in-out infinite;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+  }
+
+  .cup2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 120px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(https://image.ibb.co/fmHm66/wave.png);
+    background-position: 0px 350px;
+    background-repeat: repeat-x;
+    animation: filling 10s ease-in-out infinite;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+  } 
+  
+  .cup3 {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 120px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(https://image.ibb.co/fmHm66/wave.png);
+    background-position: 0px 350px;
+    background-repeat: repeat-x;
+    animation: filling 10s ease-in-out infinite;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+  }
+ 
+  
+  .cup:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -57px;
+    top: 20px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+  }
+  
+  .cup2:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -57px;
+    top: 20px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+  }
+  .cup3:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -57px;
+    top: 20px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+  }
+
+  @keyframes filling {
+    50% {background-position: 3000px 0px;}
+    100% {background-position: 6000px 350px;}
+  }
+
+  .introduce_text{
+      width: 100%;
+      color: white;
+      text-align: center;
+      top:88%;
+      padding-left: 10%;
+      padding-right: 10%;
+      position: absolute;
+  }
+
+
+
+
+
+
+
+
+/* test css */
+.bubble {
+	height: fit-content;
+	width: 90%;
+	min-width: 200px;
+	background: ivory;
+	display: block;
+	margin: 0 auto;
+	border-radius: 20px;
+	font-size: 200px;
+	text-align: center;
+    padding: 0px 20px;
+}
+
+.blurred {
+	background: gray;
+	filter: blur(20px);
+	position: relative;
+/* 	transform: scale(1.05); */
+	z-index: -1;
 }
 
 .info_css{
     width: 100%;
     height:fit-content;
-    padding-top:20px;
+    padding: 10px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -59,7 +216,7 @@
     transform: translateY(-50%);
     padding: 12px 20px;
     width: fit-content;
-    max-width: 300px;
+    max-width: 200px;
     height:fit-content;
     background:yellow;
     border-radius: 10px;
@@ -90,7 +247,7 @@
     margin: 0 50px;
     padding: 12px 20px;
     width: fit-content;
-    max-width: 300px;
+    max-width: 200px;
     height:fit-content;
      background:#333333;
      border-radius: 10px;
@@ -109,6 +266,7 @@
    }
 
 .button_box{
+
     height: 100px;
     position: relative;
 }
@@ -119,7 +277,7 @@
     margin-top: 40px;
     padding: 12px 0 0 20px;
     position: absolute;
-    left:76%;
+    left:72%;
     font-weight:700;
     text-transform: uppercase;
     background:

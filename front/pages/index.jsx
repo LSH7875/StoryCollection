@@ -34,14 +34,28 @@ const start_page=()=>{
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/></style>
         </Head>
              
-            <p>
-                테스트
-            </p>
+            <div className="container_index">
+                <div className="cup_box">   
+                    <div className="cup">
+                        <div className="cup_button" onClick={() => router.push('/test/1-1')}>잼민이테스트</div>
+                    </div>
+                </div>
 
-            <button onClick={() => router.push('/test/1-1')}>테스트테스트</button>
-            <button onClick={() => router.push('/test/2-1')}>호구테스트</button>
-            <button onClick={() => router.push('/test/3-1')}>정치력테스트</button>
+                <div className="cup_box">   
+                    <div className="cup2">
+                    <div className="cup_button" onClick={() => router.push('/test/2-1')}>호구테스트</div>
+                    </div>
+                </div>
 
+                <div className="cup_box">   
+                    <div className="cup3">
+                    <div className="cup_button" onClick={() => router.push('/test/3-1')}>정치력테스트</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div className="introduce_text"> 4가지 항목중 원하는 답을 고른후 아래에 있는 NEXT 버튼을 눌러주세요 </div>            
+            
         </>
 
     )

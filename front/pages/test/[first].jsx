@@ -25,7 +25,7 @@ const ResultInform = Styled.div`
     padding-left:10%;
 `
 const Button = Styled.button`
-    width:50vw;
+    width:65vw;
     height:5vh;
     display:block;
     font-size:1em;
@@ -132,8 +132,12 @@ const first_page=()=>{
                 />
         </Head>
             <div className="container">
-
-            <div className="info_css">{List[0].info}</div>
+            <div>
+        	<div className="bubble"><div className="info_css">{List[0].info}</div></div>
+	        <div className="blurred"></div>
+            </div>
+            
+            
 
                 {kakao.map((v,k)=>{
                     return(
