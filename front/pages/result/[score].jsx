@@ -65,12 +65,12 @@ const result_page=()=>{
     // score점수가 바뀔 때 dispatch를 보냄(1번째 받는 score값은 undefined이고 2번째 받는 score값에는 query가 제대로 담김)
     useEffect(async()=>{
         dispatch({type:"SUMSTAT",payload:{'stat1':query[1],'stat2':query[2],'stat3':query[3],'stat4':query[4]}});
-        
+        let aa = await axios.post(`http://localhost:3000/result/${score}`);
+        console.log('axios값:',aa);
     },[score])
 
 
-    let aa = await axios.post(`http://localhost:3000/result/${score}`);
-        console.log('axios값:',aa);
+    
     //css-style
     const linkstyle={
         overflow:'hidden',
