@@ -35,6 +35,7 @@ const start_page=()=>{
         </Head>
              
             <div className="container_index">
+
                 <div className="cup_box">   
                     <div className="cup">
                         <div className="cup_button" onClick={() => router.push('/test/1-1')}>잼민이테스트</div>
