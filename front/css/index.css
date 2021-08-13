@@ -141,13 +141,6 @@
       position: absolute;
   }
 
-
-
-
-
-
-
-
 /* test css */
 .bubble {
 	height: fit-content;
@@ -160,14 +153,6 @@
 	font-size: 200px;
 	text-align: center;
     padding: 0px 20px;
-}
-
-.blurred {
-	background: gray;
-	filter: blur(20px);
-	position: relative;
-/* 	transform: scale(1.05); */
-	z-index: -1;
 }
 
 .info_css{
