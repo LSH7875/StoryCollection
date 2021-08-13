@@ -6,7 +6,7 @@ import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import KakaoLink from '../../components/KakaoLink2'
 import  Link  from 'next/link'
-
+import axios from 'axios'
 
 
 const P =Styled.h1`
