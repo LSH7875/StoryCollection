@@ -17,7 +17,7 @@
 /*index css*/
    
 .container_index{
-    background: #333333;
+    background: #B2C7D9;
     width: 100%;
     height: 100%;
     position:absolute;
@@ -40,7 +40,7 @@
     transform: translate(-50%, -50%);
     width: 200px;
     height: 120px;
-    border: 6px solid #262626;
+    border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
     border-top-left-radius: 5px;
@@ -49,7 +49,7 @@
     background-position: 0px 350px;
     background-repeat: repeat-x;
     animation: filling 10s ease-in-out infinite;
-    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+    box-shadow: 0 0 0 6px #fff, 0 5px 35px rgba(0,0,0,1);
   }
 
   .cup2 {
@@ -59,7 +59,7 @@
     transform: translate(-50%, -50%);
     width: 200px;
     height: 120px;
-    border: 6px solid #262626;
+    border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
     border-top-left-radius: 5px;
@@ -78,7 +78,7 @@
     transform: translate(-50%, -50%);
     width: 200px;
     height: 120px;
-    border: 6px solid #262626;
+    border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
     border-top-left-radius: 5px;
