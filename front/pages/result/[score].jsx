@@ -61,7 +61,9 @@ const result_page=({query,data,highscore})=>{
     },[])
 
 
-    
+    //stat들 모음
+    let statArr = [data.stat1,data.stat2,data.stat3,data.stat4];
+    console.log('arr',statArr)
     
     //css-style
     const linkstyle={
@@ -98,7 +100,7 @@ const result_page=({query,data,highscore})=>{
             <P>🌟{data.result_subject}🌟</P>
             <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
             
-            <Graph style = {graph} value={query1}/>
+            <Graph style = {graph} value={query1} statArr={statArr}/>
             
             <ResultInform><h2></h2>
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
@@ -120,6 +122,7 @@ export async function getServerSideProps({params}){
     let highscore=arr[0];//제일 높은 점수
     const res = await axios.post(`http://testcollector.shop:3000/result/${query[0]}-${highscore}`)
     const data = res.data.result;
+    console.log(data);
     return{ props : {query:query, data:data , highscore:highscore} }
 }
 

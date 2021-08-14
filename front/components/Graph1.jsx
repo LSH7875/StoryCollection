@@ -29,7 +29,7 @@ const Graph = Styled.div`
 
 
   
-  const VerticalBar = () => {
+  const VerticalBar = ({statArr}) => {
     const {dispatch,state}=useContext(Store);
 
     const chartAreaBorder = {
@@ -46,7 +46,7 @@ const Graph = Styled.div`
       }
     };
   const data = {
-      labels: ['순발력', '눈치력', '예절성', '논리력'],
+      labels: statArr,
       datasets: [
         { 
           data: [parseInt(state.stat.stat1),parseInt(state.stat.stat2),parseInt(state.stat.stat3),parseInt(state.stat.stat4)],
