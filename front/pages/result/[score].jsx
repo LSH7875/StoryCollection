@@ -44,20 +44,15 @@ const List = Styled.div`
 
 
 const result_page=({query,data,highscore})=>{
-    console.log('1111111111111query',query)
-    console.log('22222222data',data)
-    
     const router=useRouter();
     
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
     const query1=query.map(v=>{
         return parseInt(v)
     })
-    console.log('query1',query1)
     let {score}=router.query;
     
     const {dispatch} = useContext(Store);
-    console.log('dispatch시작')
     
     // score점수가 바뀔 때 dispatch를 보냄(1번째 받는 score값은 undefined이고 2번째 받는 score값에는 query가 제대로 담김)
     useEffect(async()=>{
@@ -117,7 +112,6 @@ const result_page=({query,data,highscore})=>{
 }
 
 export async function getServerSideProps({params}){
-    console.log('//////////ppparams',params);
     let query=params.score.split('&');
     let query1=query.slice();
     let arr = query1.sort(function(a,b){

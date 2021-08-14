@@ -7,10 +7,6 @@ import Head from 'next/head'
 const App=({Component,pageProps})=>{
     const globalContext=useContext(Store)
     const [state,dispatch] = useReducer(reducer,globalContext)
-    console.log('store')
-    console.log(state)
-    console.log('dispatch')
-    console.log(dispatch)
     
     return (
         <>
