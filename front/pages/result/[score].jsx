@@ -101,11 +101,11 @@ const result_page=({query,data,highscore})=>{
             <Graph style = {graph} value={query1}/>
             
             <ResultInform><h2></h2>
-                
+            <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
             <p style={{textAlign:"center"}}>공유하기</p> 
             <KakaoLink value ={score} style = {linkstyle}/>
-            <List><Link href="/" style={listStyle}><a>목록가기</a></Link></List>
+            <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
         </>
 
     )
