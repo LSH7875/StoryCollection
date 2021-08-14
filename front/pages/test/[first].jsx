@@ -40,8 +40,7 @@ const Button = Styled.button`
 
 
 const first_page=({data})=>{
-    console.log('props')
-    console.log(data);
+
     
 
     const {dispatch,state} =useContext(Store);
@@ -51,22 +50,20 @@ const first_page=({data})=>{
     
 
     if(!first) return(<></>)
-    console.log('first',first)
+
 
     
     let stage_step=String(first);
     let stagenum=stage_step.split("-")[0]
     let stepnum=stage_step.split("-")[1]
-    console.log('stepnum',stepnum)
     
     const aab = {...state.List[stepnum-1]};
-    console.log('스테이트의 넘버 어쩌구저쩌구',aab.key);
-    console.log()
+
     let step_key=  Infinity; 
-    console.log('async전')
+
     let kakao;
     if(data.kakaotalk){kakao=data.kakaotalk.split('&')}
-    console.log('kakao',kakao)
+
     
 
     
@@ -95,10 +92,9 @@ const first_page=({data})=>{
         if(stepnum==="5"&&page==="nextpage" ){
             router.push(`/before_result`);
         }else if(page==="nextpage"){
-            console.log(stepnum);
+
             const aa=parseInt(stepnum)+1;
             const bb=String(`${stagenum}-${aa}`);
-            console.log('bb',bb);
 
             router.push(`/test/${bb}`);
         }else{
@@ -182,7 +178,6 @@ const first_page=({data})=>{
 export async function getServerSideProps({params}){
     const res = await axios.post(`http://testcollector.shop:3000/test/${params.first}`)
     const data = res.data.TPT
-    console.log(data)
     return{ props : {data:data} }
 }
 

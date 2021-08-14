@@ -31,8 +31,7 @@ const Graph = Styled.div`
   
   const VerticalBar = () => {
     const {dispatch,state}=useContext(Store);
-    console.log('그래프 state')
-    console.log(state.stat.stat1);
+
     const chartAreaBorder = {
       id: 'chartAreaBorder',
       beforeDraw(chart, args, options) {

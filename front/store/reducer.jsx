@@ -7,7 +7,6 @@ const reducer=(state,action)=>{
         case "INITIALIZE":
             return initialState
         case "PLUSLIST":
-            console.log('pluslist들어옴')
             return {...state,List:{...action.payload}}
         case "PLUS_STAGE":
             let list= [...state.List];
@@ -15,7 +14,6 @@ const reducer=(state,action)=>{
             let buttonkey=action.payload.key;
             return{...state,List:list,}
         case "SUMSTAT" :
-            console.log(action.payload);
             return{...state,stat:{...action.payload}}
         case "TEST":
             return{

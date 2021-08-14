@@ -2,7 +2,7 @@ import Styled from 'styled-components'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
-
+import Store from '../store/context'
 
 const P =Styled.h1`
     margin-top:3rem;
@@ -23,9 +23,11 @@ const ResultInform = Styled.div`
 `
 const start_page=()=>{
 
-
+    const {dispatch} = useContext(Store);
     const router=useRouter();
-    
+    useEffect(async()=>{
+        dispatch({type:"INITIALIZE"});
+    },[])
     return(
         <>
         <Head>
