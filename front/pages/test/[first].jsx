@@ -6,6 +6,7 @@ import {useRouter} from 'next/router'
 import Router from 'next/router'
 import {} from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const P =Styled.h1`
     margin-top:3rem;
@@ -35,48 +36,46 @@ const Button = Styled.button`
     margin:0 auto 10px auto ;
     font-weight:600;
     `
+    
 
 
-const first_page=()=>{
+const first_page=({data})=>{
+    console.log('props')
+    console.log(data);
+    
 
+    const {dispatch,state} =useContext(Store);
+    
     const router=useRouter();
     let {first}= router.query;
+    
+
+    if(!first) return(<></>)
+    console.log('first',first)
 
     
     let stage_step=String(first);
     let stagenum=stage_step.split("-")[0]
     let stepnum=stage_step.split("-")[1]
     console.log('stepnum',stepnum)
-    const {dispatch,state} =useContext(Store);
+    
     const aab = {...state.List[stepnum-1]};
     console.log('스테이트의 넘버 어쩌구저쩌구',aab.key);
     console.log()
     let step_key=  Infinity; 
-    // if(stepnum===1){
-    //     dispatch({type:"INITIALIZE"})
-    // }
-    let List=[
-            {id:'1',
-            test_page_id:'1-1',
-            info:'부모님이 여행계획을 세우는데 아버지는 산, 어머니는 바다로 대립중이다. 당신의 의견은?',
-            kakaotalk:'딸~ 이번에 여행갈껀데&예&아버지는 산, 어머니는 바다가 좋다고하네?&예&딸은 어디가고싶어?&???',
-            answer1:'아버지 저는 산이 좋습니다',
-            answer2:'어머니 바다로 갑시다',
-            answer3:'바다가 보이는 산을 갑시다',
-            answer4:'난 호텔을 가고싶어요 부모님',
-            point1:'0&11&3&12',
-            point2:'0&11&3&12',
-            point3:'0&11&3&12',
-            point4:'0&11&3&12'
-            }
-        ]
-    let kakao = List[0].kakaotalk.split('&');
+    console.log('async전')
+    let kakao;
+    if(data.kakaotalk){kakao=data.kakaotalk.split('&')}
+    console.log('kakao',kakao)
     
-    let {answer1,answer2,answer3,answer4} = List[0];
-    let point1=List[0].point1.split('&');
-    let point2=List[0].point1.split('&');
-    let point3=List[0].point1.split('&');
-    let point4=List[0].point1.split('&');
+
+    
+    
+    let {answer1,answer2,answer3,answer4} = data;
+    let point1=data.point1.split('&');
+    let point2=data.point1.split('&');
+    let point3=data.point1.split('&');
+    let point4=data.point1.split('&');
     let maparr = [{answer:answer1,point:point1},{answer:answer2,point:point2},{answer:answer3,point:point3},{answer:answer4,point:point4}]
     
    
@@ -116,7 +115,7 @@ const first_page=()=>{
     })
     */
     const imgUrl="/draven1.jpg"
-
+    
 
     return(
         <>
@@ -133,30 +132,35 @@ const first_page=()=>{
         </Head>
             <div className="container">
 
-
             <div className="bubble">
-                <div className="info_css">{List[0].info}</div>
+                <div className="info_css">{data.info}</div>
             </div>
 
-                {kakao.map((v,k)=>{
-                    return(
-                        <div key={k}>
-                            {k%2===1
-                            ?<div className="content_box"><div className="right_content" key={k}>
-                            {v} 
-                        </div></div>
-                        :<div className="content_box">
-                            <div className="left_img">
-                                <img className="img_size" src={imgUrl} />
+                {kakao?
+                    kakao.map((v,k)=>{
+                        return(
+                            <div key={k}>
+                                {k%2===1
+                                ?<div className="content_box">
+                                    <div className="right_content" key={k}>
+                                        {v} 
+                                    </div>
+                                </div>
+                                :<div className="content_box">
+                                    <div className="left_img">
+                                        <img className="img_size" src={imgUrl} />
+                                    </div>
+                                    <div className="left_content" key={k}>
+                                        {v} 
+                                    </div>
+                                </div>    
+                                }
                             </div>
-                            <div className="left_content" key={k}>
-                            {v} 
-                            </div>
-                        </div>    
-                    }
-                        </div>
-                    )
-                })}
+                        )
+                    })
+                :''
+                }
+                
                 {maparr.map((v,k)=>{
                     return (
                         k===aab.key?
@@ -174,5 +178,12 @@ const first_page=()=>{
     )
 }
 
+
+export async function getServerSideProps({params}){
+    const res = await axios.post(`http://testcollector.shop:3000/test/${params.first}`)
+    const data = res.data.TPT
+    console.log(data)
+    return{ props : {data:data} }
+}
 
 export default first_page

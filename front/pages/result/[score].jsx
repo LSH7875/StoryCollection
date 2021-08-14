@@ -39,35 +39,32 @@ const List = Styled.div`
     left:50%;
     >Link{
         
-    }
-
-
-                `
+    }`
 
 
 
-const result_page=()=>{
-
-    const {dispatch} = useContext(Store);
+const result_page=({query,data,highscore})=>{
+    console.log('1111111111111query',query)
+    console.log('22222222data',data)
+    
     const router=useRouter();
     
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
-
-    let {score}=router.query;
-    let bb=String(score);
-    let query=bb.split('&');
-    let query1=query.slice();
-    let arr = query1.sort(function(a,b){
-        return b-a;
+    const query1=query.map(v=>{
+        return parseInt(v)
     })
-    let highscore=arr[0];//제일 높은 점수
-
+    console.log('query1',query1)
+    let {score}=router.query;
+    
+    const {dispatch} = useContext(Store);
+    console.log('dispatch시작')
+    
     // score점수가 바뀔 때 dispatch를 보냄(1번째 받는 score값은 undefined이고 2번째 받는 score값에는 query가 제대로 담김)
     useEffect(async()=>{
         dispatch({type:"SUMSTAT",payload:{'stat1':query[1],'stat2':query[2],'stat3':query[3],'stat4':query[4]}});
-        let aa = await axios.post(`http://localhost:3000/result/1-39`);
-        console.log('axios값:',aa);
-    },[score])
+        
+    },[])
+
 
     
     
@@ -92,8 +89,6 @@ const result_page=()=>{
     
     }
     
-        
-
 
     return(
         <>
@@ -105,22 +100,34 @@ const result_page=()=>{
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/>
             </style>
         </Head>
-             <P>🌟당신은 호구입니다.🌟</P>
+            <P>🌟{data.result_subject}🌟</P>
             <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
             
-            <Graph style = {graph} value={query}/>
+            <Graph style = {graph} value={query1}/>
             
-            <ResultInform>어쩌구 저쩌구한 당신은 진정한 호구입니다.
-                sfdgsdfgsdfgsdfg
-                sdfgsdfgsdfdasfasdfasdfa
-                adfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+            <ResultInform><h2></h2>
+                
             </ResultInform>
             <p style={{textAlign:"center"}}>공유하기</p> 
             <KakaoLink value ={score} style = {linkstyle}/>
-            <List><Link href="/main" style={listStyle}><a>목록가기</a></Link></List>
+            <List><Link href="/" style={listStyle}><a>목록가기</a></Link></List>
         </>
 
     )
 }
+
+export async function getServerSideProps({params}){
+    console.log('//////////ppparams',params);
+    let query=params.score.split('&');
+    let query1=query.slice();
+    let arr = query1.sort(function(a,b){
+        return b-a;
+    })
+    let highscore=arr[0];//제일 높은 점수
+    const res = await axios.post(`http://testcollector.shop:3000/result/${query[0]}-${highscore}`)
+    const data = res.data.result;
+    return{ props : {query:query, data:data , highscore:highscore} }
+}
+
 
 export default result_page
