@@ -3,6 +3,7 @@ import Head from 'next/head'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import Store from '../store/context'
+import {useContext,useEffect} from 'react'
 
 const P =Styled.h1`
     margin-top:3rem;
