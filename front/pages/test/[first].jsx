@@ -183,6 +183,15 @@ const first_page=({data})=>{
                     <div className="nextpage_css" onClick={()=>pagemove("nextpage")}>next</div>
                 </div>
             </div>
+            <amp-ad width="100vw" 
+                    height="320"
+                    type="adsense"
+                    data-ad-client="ca-pub-6661020916106903"
+                    data-ad-slot="3501181296"
+                    data-auto-format="rspv"
+                    data-full-width="">
+                <div overflow=""></div>
+            </amp-ad>
         </>
     )
 }
