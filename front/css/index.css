@@ -169,10 +169,13 @@
 	background: ivory;
 	display: block;
 	margin: 0 auto;
+  margin-top:25px;
+  margin-bottom:15px;
 	border-radius: 20px;
 	font-size: 200px;
 	text-align: center;
     padding: 0px 20px;
+    overflow:hidden;
 }
 
 .info_css{
@@ -193,7 +196,8 @@
 
 .content_box{
     width: 100%;
-    height: 10vh;
+    overflow:hidden;
+    height:fit-content;
     max-height: 50vh;
     position: relative;
     margin: 10px 0 ;
@@ -216,28 +220,32 @@
 
 .right_content {
     color: black;
-    position:relative;
-    top: 50%; 
-    transform: translateY(-50%);
+    /* position:relative; */
+    /* top: 50%; 
+    transform: translateY(-50%); */
     padding: 12px 20px;
+    margin-bottom:5px;
     width: fit-content;
-    max-width: 200px;
+    max-width: calc(100% - 80px);
     height:fit-content;
     background:yellow;
     border-radius: 10px;
     float: right;
     right:15px;
     font-weight: bold;
+    margin-right: 20px;
    }
-.right_content:after {
+.right_content:before {
     border-top:15px solid yellow;
     border-left: 0px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 0px solid transparent;
     content:"";
     position:absolute;
-    top:10px;
-    right:-15px;
+    display:inline-block;
+    top:5px;
+    right:5px;
+    
    }
 
 .left_img{
@@ -246,28 +254,31 @@
 
 .left_content {
     color: whitesmoke;
-    position:relative;
-    top: 50%; 
-    transform: translateY(-50%);
-    margin: 0 50px;
+    /* position:relative; */
+    /* top: 50%;  */
+    /* margin-bottom:5px; */
+    /* transform: translateY(-50%); */
+  margin-left:15px;
     padding: 12px 20px;
     width: fit-content;
-    max-width: 200px;
+    max-width: calc(100% - 80px);
     height:fit-content;
      background:#333333;
      border-radius: 10px;
      right:30px;
      float: left;
    }
-.left_content:after {
-    border-top:15px solid #333333;
-    border-left: 15px solid transparent;
+.left_content:before {
+    border-top:18px solid #333333;
+    border-left: 18px solid transparent;
     border-right: 0px solid transparent;
     border-bottom: 0px solid transparent;
     content:"";
-    position:absolute;
-    top:10px;
-    left:-15px;
+    margin:15px;
+    margin-left:-32px;
+    display:absolute;
+    /* top:-10px;
+    left:-15px; */
    }
 
 .button_box{
