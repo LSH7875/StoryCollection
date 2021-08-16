@@ -60,6 +60,14 @@ const result_page=({query,data,highscore,uri})=>{
         
     },[])
 
+    let testname;
+    if(query[0]==1){
+        testname="틀딱"
+    } else if(query[1]==2){
+        testname="호구력"
+    } else if(query[1]==3){
+        testname="정치력"
+    }
 
     //stat들 모음
     let statArr = [data.stat1,data.stat2,data.stat3,data.stat4];
@@ -85,7 +93,7 @@ const result_page=({query,data,highscore,uri})=>{
         overflow:"hidden"
     
     }
-    
+    console.log('highscore',highscore);
 
     return(
         <>
@@ -98,7 +106,9 @@ const result_page=({query,data,highscore,uri})=>{
             </style>
         </Head>
             <P>🌟{data.result_subject}🌟</P>
-            <div style ={{"width":"100%","textAlign":"center"}}><h1>호구력 {highscore}%</h1></div>
+            <div style ={{"width":"100%","textAlign":"center"}}>
+                <h1>{testname} {query[0]==2?100-highscore:highscore}%</h1>
+            </div>
             
             <Graph style = {graph} value={query1} statArr={statArr}/>
             
@@ -108,19 +118,27 @@ const result_page=({query,data,highscore,uri})=>{
             <p style={{textAlign:"center"}}>공유하기</p> 
             <KakaoLink uri ={uri} style = {linkstyle}/>
             <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
+            
         </>
 
     )
 }
 
 export async function getServerSideProps({params}){
+    console.log('getserverside')
     let query=params.score.split('&');
-    let query1=query.slice();
+    let query1=[query[1],query[2],query[3],query[4]]
     let arr = query1.sort(function(a,b){
         return b-a;
     })
-    let highscore=arr[0];//제일 높은 점수
+    let highscore;
+    console.log('arr1111',arr)
+    query[0]==2?highscore=arr[3]:highscore=arr[0];//제일 높은 점수
+    console.log('gethighscore',highscore)
     const res = await axios.post(`http://testcollector.shop:3000/result/${query[0]}-${highscore}`)
+    console.log(
+        '보내는 값',`${query[0]}-${highscore}`
+    )
     const data = res.data.result;
     console.log(data);
     return{ props : {query:query, data:data , highscore:highscore, uri:params.score} }

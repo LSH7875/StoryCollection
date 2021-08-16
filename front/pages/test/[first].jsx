@@ -137,20 +137,29 @@ const first_page=({data})=>{
                         return(
                             <div key={k}>
                                 {k%2===1
-                                ?<div className="content_box">
-                                    <div className="right_content" key={k}>
-                                        {v} 
-                                    </div>
-                                </div>
-                                :<div className="content_box">
-                                    <div className="left_img">
-                                        <img className="img_size" src={imgUrl} />
-                                    </div>
-                                    <div className="left_content" key={k}>
-                                        {v} 
-                                    </div>
-                                </div>    
+                                    ?v.split("/").map((v,k)=>{
+                                        return(
+                                            <div className="content_box">
+                                                <div className="right_content" key={k}>
+                                                    {v} 
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                    :v.split("/").map((v,k)=>{
+                                        return(
+                                            <div className="content_box">
+                                                <div className="left_img">
+                                                    <img className="img_size" src={imgUrl} />
+                                                </div>
+                                                <div className="left_content" key={k}>
+                                                    {v} 
+                                                </div>
+                                            </div>    
+                                        )
+                                    })
                                 }
+                                
                             </div>
                         )
                     })
