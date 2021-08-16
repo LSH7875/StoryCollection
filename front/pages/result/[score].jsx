@@ -43,9 +43,9 @@ const List = Styled.div`
 
 
 
-const result_page=({query,data,highscore})=>{
+const result_page=({query,data,highscore,uri})=>{
     const router=useRouter();
-    
+    console.log('uri',uri)
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
     const query1=query.map(v=>{
         return parseInt(v)
@@ -106,7 +106,7 @@ const result_page=({query,data,highscore})=>{
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
             <p style={{textAlign:"center"}}>공유하기</p> 
-            <KakaoLink value ={score} style = {linkstyle}/>
+            <KakaoLink uri ={uri} style = {linkstyle}/>
             <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
         </>
 
@@ -123,7 +123,7 @@ export async function getServerSideProps({params}){
     const res = await axios.post(`http://testcollector.shop:3000/result/${query[0]}-${highscore}`)
     const data = res.data.result;
     console.log(data);
-    return{ props : {query:query, data:data , highscore:highscore} }
+    return{ props : {query:query, data:data , highscore:highscore, uri:params.score} }
 }
 
 
