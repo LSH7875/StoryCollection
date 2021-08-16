@@ -15,7 +15,8 @@ height:50px;
 object-fit:cover;
 `
 
-const KakaoShareButton = ({score}) => {
+const KakaoShareButton = ({uri}) => {
+  console.log('uri',uri);
   useEffect(() => {
     createKakaoButton()
   }, [])
@@ -39,8 +40,8 @@ const KakaoShareButton = ({score}) => {
           description: '#카톡 심리테스트 #재밌는 심리테스트 #심테',
           imageUrl: 'https://lh3.googleusercontent.com/XVgISnvwrl5PzFmAcWJpbNb7xuaGldbjC2J7t56Xs8kit-ElY-Rl2F2hbySJ6ERcbgk', // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
-            mobileWebUrl:`http://testcollector.shop/result/${score}`,
-            webUrl: window.location.href,
+            mobileWebUrl:`http://testcollector.shop/result/${uri}`,
+            webUrl: `http://testcollector.shop/result/${uri}`,
           },
         },
         social: {
@@ -52,15 +53,15 @@ const KakaoShareButton = ({score}) => {
           {
             title: '웹으로 보기',
             link: {
-              mobileWebUrl: `http://testcollector.shop/result/${score}`,
-              webUrl: window.location.href,
+              mobileWebUrl: `http://testcollector.shop/result/${uri}`,
+              webUrl:`http://testcollector.shop/result/${uri}`,
             },
           },
           {
             title: '앱으로 보기',
             link: {
-              mobileWebUrl: `http://testcollector.shop/result/${score}`,
-              webUrl: window.location.href,
+              mobileWebUrl: `http://testcollector.shop/result/${uri}`,
+              webUrl: `http://testcollector.shop/result/${uri}`,
             },
           },
         ],
