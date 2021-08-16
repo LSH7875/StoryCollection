@@ -39,7 +39,7 @@ const Graph = Styled.div`
         ctx.save();
         ctx.strokeStyle = options.borderColor;
         ctx.lineWidth = options.borderWidth;
-        ctx.setLineDash(options.borderDash || []);
+        ctx.setLineDash(options.borderDash || []); 
         ctx.lineDashOffset = options.borderDashOffset;
         ctx.strokeRect(left, top, width, height);
         ctx.restore();
