@@ -163,14 +163,14 @@
 
 /* test css */
 .bubble {
-
 	height: fit-content;
 	width: 90%;
 	min-width: 200px;
 	background: ivory;
 	display: block;
 	margin: 0 auto;
-  margin-top:30px;
+  margin-top:25px;
+  margin-bottom:15px;
 	border-radius: 20px;
 	font-size: 200px;
 	text-align: center;
