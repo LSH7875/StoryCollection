@@ -27,7 +27,9 @@ const ResultInform = Styled.div`
 `
 const Button = Styled.button`
     width:65vw;
-    height:5vh;
+    height:fit-content;
+    padding:5px;
+    
     display:block;
     font-size:1em;
     background: yellow;
