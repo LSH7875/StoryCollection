@@ -117,7 +117,15 @@ const result_page=({query,data,highscore,uri})=>{
             <p style={{textAlign:"center"}}>공유하기</p> 
             <KakaoLink uri ={uri} style = {linkstyle}/>
             <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
-            
+            <amp-ad width="100vw" 
+                    height="320"
+                    type="adsense"
+                    data-ad-client="ca-pub-6661020916106903"
+                    data-ad-slot="3501181296"
+                    data-auto-format="rspv"
+                    data-full-width="">
+                <div overflow=""></div>
+            </amp-ad>
         </>
 
     )

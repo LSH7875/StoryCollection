@@ -75,6 +75,15 @@ const final_page=()=>{
             <P>테스트가 끝났습니다.</P>
             <Span>결과보기 버튼을 눌러 결과를 확인하세요</Span> 
             <Button onClick={()=>buttonClick()}><a>결과보기</a></Button>
+            <amp-ad width="100vw" 
+                    height="320"
+                    type="adsense"
+                    data-ad-client="ca-pub-6661020916106903"
+                    data-ad-slot="3501181296"
+                    data-auto-format="rspv"
+                    data-full-width="">
+                <div overflow=""></div>
+            </amp-ad>
         </>
 
     )
