@@ -138,7 +138,8 @@ const first_page=({data})=>{
                             <div key={k}>
                                 {k%2===1
                                     ?v.split("/").map((v,k)=>{
-                                        return(
+                                        if(v==="''")return;
+                                        else return(
                                             <div className="content_box">
                                                 <div className="right_content" key={k}>
                                                     {v} 
@@ -147,7 +148,8 @@ const first_page=({data})=>{
                                         )
                                     })
                                     :v.split("/").map((v,k)=>{
-                                        return(
+                                        if(v==="''")return;
+                                        else return(
                                             <div className="content_box">
                                                 <div className="left_img">
                                                     <img className="img_size" src={imgUrl} />
