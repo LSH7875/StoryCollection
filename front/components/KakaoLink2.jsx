@@ -14,7 +14,9 @@ width:50px;
 height:50px;
 object-fit:cover;
 `
-
+const BUTTON = Styled.button`
+  border:0px;
+`
 const KakaoShareButton = ({uri}) => {
   console.log('uri',uri);
   useEffect(() => {
@@ -67,13 +69,13 @@ const KakaoShareButton = ({uri}) => {
         ],
       })
     }
-  }
+    }
   return (
     <KakaoShare>
       {/* Kakao share button */}
-      <button id="kakao-link-btn">
+      <BUTTON id="kakao-link-btn">
         <IMG src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="kakao-share-icon" />
-      </button>
+      </BUTTON>
     </KakaoShare>
 
   )
