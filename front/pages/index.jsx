@@ -47,7 +47,7 @@ const start_page=()=>{
                 <div className="cup_box">   
                     <div className="cup">
                         <div className="cup_button" >
-                            <Link href={`/test/[first]?first=1-1`} as ={`/test/1-1`}><a>잼민이테스트</a></Link></div>
+                            <Link href={`/test/[first]?first=1-1`} as ={`/test/1-1`}><a>틀딱테스트</a></Link></div>
                     </div>
                 </div>
 
