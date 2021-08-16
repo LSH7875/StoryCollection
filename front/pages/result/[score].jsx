@@ -45,7 +45,6 @@ const List = Styled.div`
 
 const result_page=({query,data,highscore,uri})=>{
     const router=useRouter();
-    console.log('uri',uri)
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
     const query1=query.map(v=>{
         return parseInt(v)
@@ -63,9 +62,9 @@ const result_page=({query,data,highscore,uri})=>{
     let testname;
     if(query[0]==1){
         testname="틀딱"
-    } else if(query[1]==2){
+    } else if(query[0]==2){
         testname="호구력"
-    } else if(query[1]==3){
+    } else if(query[0]==3){
         testname="정치력"
     }
 
@@ -107,7 +106,7 @@ const result_page=({query,data,highscore,uri})=>{
         </Head>
             <P>🌟{data.result_subject}🌟</P>
             <div style ={{"width":"100%","textAlign":"center"}}>
-                <h1>{testname} {query[0]==2?100-highscore:highscore}%</h1>
+                <h1>{testname} {query[0]==2? 100-highscore : highscore}%</h1>
             </div>
             
             <Graph style = {graph} value={query1} statArr={statArr}/>
@@ -125,22 +124,15 @@ const result_page=({query,data,highscore,uri})=>{
 }
 
 export async function getServerSideProps({params}){
-    console.log('getserverside')
     let query=params.score.split('&');
     let query1=[query[1],query[2],query[3],query[4]]
     let arr = query1.sort(function(a,b){
         return b-a;
     })
     let highscore;
-    console.log('arr1111',arr)
     query[0]==2?highscore=arr[3]:highscore=arr[0];//제일 높은 점수
-    console.log('gethighscore',highscore)
     const res = await axios.post(`http://testcollector.shop:3000/result/${query[0]}-${highscore}`)
-    console.log(
-        '보내는 값',`${query[0]}-${highscore}`
-    )
     const data = res.data.result;
-    console.log(data);
     return{ props : {query:query, data:data , highscore:highscore, uri:params.score} }
 }
 
