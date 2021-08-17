@@ -51,14 +51,14 @@ const KakaoShareButton = ({uri}) => {
         },
         buttons: [
           {
-            title: '웹으로 보기',
+            title: '친구의 결과보기',
             link: {
               mobileWebUrl: `http://testcollector.shop/result/${uri}`,
               webUrl:`http://testcollector.shop/result/${uri}`,
             },
           },
           {
-            title: '앱으로 보기',
+            title: '테스트 하기',
             link: {
               mobileWebUrl: `https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest`,
               webUrl: `https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest`,
