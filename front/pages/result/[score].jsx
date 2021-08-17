@@ -41,10 +41,15 @@ const List = Styled.div`
         
     }`
 
+const Center = Styled.div`
+    display:block;
+    text-align:center;
+`
 
 
 const result_page=({query,data,highscore,uri})=>{
     const router=useRouter();
+    let url = `http://testcollector.shop/result/${query}`;
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
     const query1=query.map(v=>{
         return parseInt(v)
@@ -93,16 +98,24 @@ const result_page=({query,data,highscore,uri})=>{
     
     }
     console.log('highscore',highscore);
+    
+    
 
     return(
         <>
         <Head>  
+        {/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
+        
+
             <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/>
             </style>
+            <meta property="og:title" content="카톡심리테스트" />
+            <meta property="og:description" content="카톡으로 알아보는 재미있는 심리테스트" />
+            <meta property="og:image" content="https://lh3.googleusercontent.com/XVgISnvwrl5PzFmAcWJpbNb7xuaGldbjC2J7t56Xs8kit-ElY-Rl2F2hbySJ6ERcbgk" />
         </Head>
             <P>🌟{data.result_subject}🌟</P>
             <div style ={{"width":"100%","textAlign":"center"}}>
@@ -115,7 +128,8 @@ const result_page=({query,data,highscore,uri})=>{
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
             <p style={{textAlign:"center"}}>공유하기</p> 
-            <KakaoLink uri ={uri} style = {linkstyle}/>
+            <Center><div class="addthis_inline_share_toolbox_6fpy"></div></Center>
+            {/* <KakaoLink uri ={uri} style = {linkstyle}/> */}
             <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
             <amp-ad width="100vw" 
                     height="320"

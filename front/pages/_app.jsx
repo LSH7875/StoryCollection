@@ -23,6 +23,7 @@ const App=({Component,pageProps})=>{
                 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
                 crossorigin="anonymous"
             />
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-611a7a9e1b257ba3"></script>
         </Head>
         
         <Store.Provider value={{state,dispatch}}>
