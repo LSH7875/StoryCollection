@@ -3,11 +3,9 @@ import Styled from 'styled-components'
 
 const KakaoShare =Styled.div`
     position:relative;
-    width:50px;
-    height:50px;
-    left:50%;
-    transform: translateX(-50%);
-    margin-bottom:2vh;
+    left:calc(50%-60px);
+
+
     ` 
 const IMG = Styled.img`
 width:50px;
