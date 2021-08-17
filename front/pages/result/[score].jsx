@@ -39,6 +39,7 @@ const List = Styled.div`
     height:8vh;
     padding-top:2.3vh;
     left:50%;
+    margin-top:2em;
     >Link{
         
     }`
@@ -63,12 +64,27 @@ const Ul = Styled.ul`
     flex-direction:row;
     justify-content: center;
     padding:0;
-
+    margin-bottom:0;
     &>li{
         list-style:none;
         margin:1em;
-        margin-bottom:2em;
     }
+`
+
+const Li = Styled.li`
+    font-weight:bold;
+    text-align:center; 
+    margin-bottom:-1em !important;
+` 
+const Playstore = Styled.div`
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background:black;
+    border-radius:0.5em;
+    color:white;
+    background:url('/playstore.png');
+    background-size:contain;
 `
 const result_page=({query,data,highscore,uri})=>{
     let popup;
@@ -115,7 +131,8 @@ const result_page=({query,data,highscore,uri})=>{
     }
     const listStyle={
         display:'inline-block',
-        background:'yellow'
+        background:'yellow',
+        marginTop:'2em'
     }
     const graph={
         display:"relative",
@@ -154,8 +171,12 @@ const result_page=({query,data,highscore,uri})=>{
             <ResultInform><h2></h2>
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
-            
-            <p style = {{fontWeight:"bold", width:"100%" ,textAlign:"center", }}>공유하기 및 리뷰쓰기</p>
+            <Ul >
+            <li style = {{fontWeight:"bold",textAlign:"center" }}>공유하기</li>
+            <li style = {{fontWeight:"bold",textAlign:"center" }}>리뷰쓰기</li>
+            <li style = {{fontWeight:"bold" ,textAlign:"center" }}>어플다운</li>  
+        
+            </Ul>
             <Ul >
                 <li>
                     <KakaoLink uri ={uri}/>
@@ -164,6 +185,13 @@ const result_page=({query,data,highscore,uri})=>{
                     <Link href="https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest">
                         <a>
                             <Review/>
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest">
+                        <a>
+                            <Playstore/>
                         </a>
                     </Link>
                 </li>

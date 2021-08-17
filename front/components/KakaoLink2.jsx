@@ -60,8 +60,8 @@ const KakaoShareButton = ({uri}) => {
           {
             title: '앱으로 보기',
             link: {
-              mobileWebUrl: `http://testcollector.shop/result/${uri}`,
-              webUrl: `http://testcollector.shop/result/${uri}`,
+              mobileWebUrl: `https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest`,
+              webUrl: `https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest`,
             },
           },
         ],
