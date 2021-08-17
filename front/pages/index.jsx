@@ -32,6 +32,7 @@ const start_page=()=>{
     return(
         <>
         <Head>
+        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
@@ -68,7 +69,15 @@ const start_page=()=>{
             </div>
     
             <div className="introduce_text"> 4가지 항목중 원하는 답을 고른후 아래에 있는 NEXT 버튼을 눌러주세요 </div>            
-            
+            {/* <amp-ad width="100vw" 
+                    height="320"
+                    type="adsense"
+                    data-ad-client="ca-pub-6661020916106903"
+                    data-ad-slot="3501181296"
+                    data-auto-format="rspv"
+                    data-full-width="">
+                <div overflow=""></div>
+            </amp-ad> */}
         </>
 
     )

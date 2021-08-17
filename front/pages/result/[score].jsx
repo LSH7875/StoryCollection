@@ -1,7 +1,7 @@
 import Styled from 'styled-components'
 import Graph from '../../components/Graph1'
 import Head from 'next/head'
-import {useContext,useEffect} from 'react'
+import {useContext,useEffect,} from 'react'
 import Store from '../../store/context'
 import {useRouter} from 'next/router'
 import KakaoLink from '../../components/KakaoLink2'
@@ -18,6 +18,8 @@ const P =Styled.h1`
     height:5vh;
     margin-bottom:2rem;
     font-family: 'Noto Sans KR', sans-serif;
+    padding:5px;
+    
 
 `
 const ResultInform = Styled.div`
@@ -32,7 +34,7 @@ const ResultInform = Styled.div`
 const List = Styled.div`
     display:block;
     width:100%;
-    background:blue;
+    background:#FFEB33;
     text-align:center;
     height:8vh;
     padding-top:2.3vh;
@@ -41,13 +43,35 @@ const List = Styled.div`
         
     }`
 
-const Center = Styled.div`
-    display:block;
-    text-align:center;
+const Review = Styled.div`
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background:black;
+    border-radius:0.5em;
+    color:white;
+    background:url('/review.png');
+    background-size:contain;
 `
 
+const Center = Styled.div`
+    display:inline-block;
+    text-align:center;
+`
+const Ul = Styled.ul`
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    padding:0;
 
+    &>li{
+        list-style:none;
+        margin:1em;
+        margin-bottom:2em;
+    }
+`
 const result_page=({query,data,highscore,uri})=>{
+    let popup;
     const router=useRouter();
     let url = `http://testcollector.shop/result/${query}`;
     //주소창으로 받은 값을 점수로 쓰기 위해 배열로 반환하는 과정
@@ -61,7 +85,10 @@ const result_page=({query,data,highscore,uri})=>{
     // score점수가 바뀔 때 dispatch를 보냄(1번째 받는 score값은 undefined이고 2번째 받는 score값에는 query가 제대로 담김)
     useEffect(async()=>{
         dispatch({type:"SUMSTAT",payload:{'stat1':query[1],'stat2':query[2],'stat3':query[3],'stat4':query[4]}});
-        
+        setTimeout(()=>{
+            popup=true;
+            console.log('5초지남')
+        },5000);
     },[])
 
     let testname;
@@ -79,16 +106,16 @@ const result_page=({query,data,highscore,uri})=>{
     
     //css-style
     const linkstyle={
+        position:"inline-block",
+        width:"50px",
+        height:"50px",
         overflow:'hidden',
-        display:"block",
-        width:'22px',
-        height:'22px',
-        marginLeft:"50%",
+        float:"left",
+        paddingBottom:"2vh"
     }
     const listStyle={
-        // display:'block',
-        // left:"50%",
-        // textAlign:"center"
+        display:'inline-block',
+        background:'yellow'
     }
     const graph={
         display:"relative",
@@ -104,10 +131,10 @@ const result_page=({query,data,highscore,uri})=>{
     return(
         <>
         <Head>  
-        {/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-        {/* <script data-ad-client="ca-pub-6661020916106903" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-611a7a9e1b257ba3"></script>
-            {/* <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script> */}
+        
+        <script data-ad-client="ca-pub-6661020916106903" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+            <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
@@ -127,11 +154,22 @@ const result_page=({query,data,highscore,uri})=>{
             <ResultInform><h2></h2>
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
-            <p style={{textAlign:"center"}}>공유하기</p> 
-            <Center><div class="addthis_inline_share_toolbox_so5z"></div></Center>
-            {/* <KakaoLink uri ={uri} style = {linkstyle}/> */}
-            <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
-            {/* <amp-ad width="100vw" 
+            
+            <p style = {{fontWeight:"bold", width:"100%" ,textAlign:"center", }}>공유하기 및 리뷰쓰기</p>
+            <Ul >
+                <li>
+                    <KakaoLink uri ={uri}/>
+                </li>
+                <li>
+                    <Link href="https://play.google.com/store/apps/details?id=com.DREAM_YUYU.kakao_psychologicaltest">
+                        <a>
+                            <Review/>
+                        </a>
+                    </Link>
+                </li>
+            </Ul>
+            <List><Link href="/" style={listStyle}><a style={{color:"black" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
+            <amp-ad width="100vw" 
                     height="320"
                     type="adsense"
                     data-ad-client="ca-pub-6661020916106903"
@@ -139,7 +177,7 @@ const result_page=({query,data,highscore,uri})=>{
                     data-auto-format="rspv"
                     data-full-width="">
                 <div overflow=""></div>
-            </amp-ad> */}
+            </amp-ad>
         </>
 
     )
