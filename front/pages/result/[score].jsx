@@ -105,9 +105,9 @@ const result_page=({query,data,highscore,uri})=>{
         <>
         <Head>  
         {/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-        
-
-            <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+        {/* <script data-ad-client="ca-pub-6661020916106903" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-611a7a9e1b257ba3"></script>
+            {/* <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script> */}
             <style>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
@@ -128,10 +128,10 @@ const result_page=({query,data,highscore,uri})=>{
             <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
             </ResultInform>
             <p style={{textAlign:"center"}}>공유하기</p> 
-            <Center><div class="addthis_inline_share_toolbox_6fpy"></div></Center>
+            <Center><div class="addthis_inline_share_toolbox_so5z"></div></Center>
             {/* <KakaoLink uri ={uri} style = {linkstyle}/> */}
             <List><Link href="/" style={listStyle}><a style={{color:"white" , fontWeight:"600",textDecoration:"none"}}>목록가기</a></Link></List>
-            <amp-ad width="100vw" 
+            {/* <amp-ad width="100vw" 
                     height="320"
                     type="adsense"
                     data-ad-client="ca-pub-6661020916106903"
@@ -139,7 +139,7 @@ const result_page=({query,data,highscore,uri})=>{
                     data-auto-format="rspv"
                     data-full-width="">
                 <div overflow=""></div>
-            </amp-ad>
+            </amp-ad> */}
         </>
 
     )
