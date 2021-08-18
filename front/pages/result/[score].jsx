@@ -169,7 +169,7 @@ const result_page=({query,data,highscore,uri})=>{
             <Graph style = {graph} value={query1} statArr={statArr}/>
             
             <ResultInform><h2></h2>
-            <p style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</p>
+            <div style={{textAlign:"center", paddingRight:"10%"}}>{data.result_content}</div>
             </ResultInform>
             <Ul >
             <li style = {{fontWeight:"bold",textAlign:"center" }}>공유하기</li>

@@ -7,6 +7,12 @@ const KakaoShare =Styled.div`
 
 
     ` 
+
+const Modal = Styled.div`
+width:200px;
+height:120px;
+background:#ecedef;
+`
 const IMG = Styled.img`
 width:50px;
 height:50px;
@@ -15,11 +21,22 @@ object-fit:cover;
 const BUTTON = Styled.button`
   border:0px;
 `
+
+
+
 const KakaoShareButton = ({uri}) => {
-  console.log('uri',uri);
   useEffect(() => {
     createKakaoButton()
   }, [])
+
+  handleClick=()=>{
+    kakaoSend=true;
+    setTimeout(()=>{
+      kakaoSend=false;
+    },1000)
+  }
+
+
   const createKakaoButton = () => {
 
 
@@ -70,8 +87,10 @@ const KakaoShareButton = ({uri}) => {
     }
   return (
     <KakaoShare>
+      {kakaoSend?
+      <Modal id="kakao-link-btn">카카오 링크를 보내는 중입니다. </Modal>:''}
       {/* Kakao share button */}
-      <BUTTON id="kakao-link-btn">
+      <BUTTON onClick={handleClick}>
         <IMG src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="kakao-share-icon" />
       </BUTTON>
     </KakaoShare>
