@@ -19,7 +19,7 @@
     height: 10%;
     position:absolute;
     top: 5%;
-    padding-left: 20%;
+    transform: translate(-50%, -50%);
 }
 
 .text1 {
