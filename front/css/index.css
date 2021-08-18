@@ -55,11 +55,11 @@
 
   .cup {
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 120px;
+    width: 40%;
+    height: 12%;
     border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
@@ -74,11 +74,11 @@
 
   .cup2 {
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 120px;
+    width: 40%;
+    height: 12%;
     border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
@@ -96,8 +96,8 @@
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 120px;
+    width: 40%;
+    height: 12%;
     border: 6px solid #B2C7D9;
     border-top: 2px solid transparent;
     border-radius: 15px;
@@ -114,11 +114,11 @@
   .cup:before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 80px;
+    width: 30%;
+    height: 80%;
     border: 6px solid #fff;
-    right: -57px;
-    top: 20px;
+    right: -35%;
+    top: 20%;
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
   }
@@ -126,22 +126,22 @@
   .cup2:before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 80px;
+    width: 30%;
+    height: 80%;
     border: 6px solid #fff;
-    right: -57px;
-    top: 20px;
+    right: -35%;
+    top: 20%;
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
   }
   .cup3:before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 80px;
+    width: 30%;
+    height: 80%;
     border: 6px solid #fff;
-    right: -57px;
-    top: 20px;
+    right: -35%;
+    top: 20%;
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
   }
